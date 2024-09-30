@@ -282,6 +282,36 @@ namespace radiation_pressure {
             get_docstring("specular_diffuse_body_panel_reflection").c_str()
         );
 
+        m.def("solar_sail_optical_body_panel_reflection",
+              &tss::solarSailOpticalBodyPanelReflectionLawSettings,
+              py::arg("front_absorptivity"),
+              py::arg("back_absorptivity"),
+              py::arg("front_specular_reflectivity"),
+              py::arg("back_specular_reflectivity"),
+              py::arg("front_diffuse_reflectivity"),
+              py::arg("back_diffuse_reflectivity"),
+              py::arg("front_non_lambertian_coefficient"),
+              py::arg("back_non_lambertian_coefficient"),
+              py::arg("front_emissivity"),
+              py::arg("back_emissivity"),
+              get_docstring("solar_sail_optical_body_panel_reflection").c_str()
+        );
+
+        m.def("solar_sail_optical_body_panel_time_varying_reflection",
+              &tss::solarSailOpticalBodyPanelTimeVaryingReflectionLawSettings,
+              py::arg("front_absorptivity_function"),
+              py::arg("back_absorptivity_function"),
+              py::arg("front_specular_reflectivity_function"),
+              py::arg("back_specular_reflectivity_function"),
+              py::arg("front_diffuse_reflectivity_function"),
+              py::arg("back_diffuse_reflectivity_function"),
+              py::arg("front_non_lambertian_coefficient_function"),
+              py::arg("back_non_lambertian_coefficient_function"),
+              py::arg("front_emissivity_function"),
+              py::arg("back_emissivity_function"),
+              get_docstring("solar_sail_optical_body_panel_time_varying_reflection").c_str()
+        );
+
         m.def("lambertian_body_panel_reflection",
               &tss::lambertainBodyPanelReflectionLawSettings,
               py::arg("reflectivity"),

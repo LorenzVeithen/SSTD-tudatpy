@@ -39,7 +39,9 @@ namespace vehicle_systems {
         m.def("frame_fixed_panel_geometry",
               &tss::frameFixedPanelGeometry,
               py::arg("surface_normal"),
+              py::arg("position_vector"),
               py::arg("area"),
+              py::arg("panel_temperature") = 273.0,
               py::arg("frame_orientation") = "",
               get_docstring("frame_fixed_panel_geometry").c_str());
 
@@ -47,16 +49,20 @@ namespace vehicle_systems {
               &tss::bodyTrackingPanelGeometry,
               py::arg("body_to_track"),
               py::arg("towards_tracked_body"),
+              py::arg("position_vector"),
               py::arg("area"),
+              py::arg("panel_temperature") = 273.0,
               py::arg("frame_orientation") = "",
               get_docstring("body_tracking_panel_geometry").c_str());
 
         m.def("time_varying_panel_geometry",
               &tss::timeVaryingPanelGeometry,
               py::arg("surface_normal_function"),
-              py::arg("area"),
-              py::arg("frame_orientation"),
-              get_docstring("time_varying_panel_geometry").c_str());
+              py::arg("position_vector_function"),
+              py::arg("area_function"),
+              py::arg("panel_temperature") = 273.0,
+              py::arg("frame_orientation")= "",
+        get_docstring("time_varying_panel_geometry").c_str());
 
         py::class_<tss::BodyPanelSettings,
             std::shared_ptr<tss::BodyPanelSettings>>(m, "BodyPanelSettings",

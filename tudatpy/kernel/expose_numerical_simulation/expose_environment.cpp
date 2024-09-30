@@ -741,8 +741,8 @@ void expose_environment(py::module &m) {
             .def_property("rigid_body_properties", &tss::Body::getMassProperties, &tss::Body::setMassProperties, get_docstring("Body.rigid_body_properties").c_str())
             .def_property_readonly("gravitational_parameter", &tss::Body::getGravitationalParameter, get_docstring("Body.gravitational_parameter").c_str())
             .def("get_ground_station", &tss::Body::getGroundStation, py::arg("station_name"), get_docstring("Body.get_ground_station").c_str())
-            .def_property_readonly("ground_station_list", &tss::Body::getGroundStationMap, get_docstring("Body.ground_station_list").c_str() );
-
+            .def_property_readonly("ground_station_list", &tss::Body::getGroundStationMap, get_docstring("Body.ground_station_list").c_str() )
+            .def_property_readonly("time", &tss::Body::getDoubleTimeOfCurrentState, get_docstring("Body.time").c_str());
 
 
 

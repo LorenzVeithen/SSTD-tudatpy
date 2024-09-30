@@ -71,6 +71,8 @@ namespace torque {
                 .value("spherical_harmonic_gravitational_type",
                        tba::AvailableTorque::spherical_harmonic_gravitational_torque,
                        get_docstring("AvailableTorque.spherical_harmonic_gravitational_type").c_str())
+                .value("radiation_pressure_type", tba::AvailableTorque::radiation_pressure_torque,
+                       get_docstring("AvailableTorque.radiation_pressure_type").c_str())
                 .value("inertial_type", tba::AvailableTorque::inertial_torque,
                        get_docstring("AvailableTorque.inertial_type").c_str())
                 .value("dissipative_type", tba::AvailableTorque::dissipative_torque,
@@ -94,13 +96,13 @@ namespace torque {
         m.def("second_degree_gravitational", &tss::secondDegreeGravitationalTorque,
               get_docstring("second_degree_gravitational").c_str());
 
-
         m.def("spherical_harmonic_gravitational", &tss::sphericalHarmonicGravitationalTorque,
               py::arg("maximum_degree"),
               py::arg("maximum_order"),
               get_docstring("spherical_harmonic_gravitational").c_str());
 
-
+        m.def("radiation_pressure", &tss::radiationPressureTorque,
+              get_docstring("radiation_pressure").c_str());
 
         m.def("custom_torque", &tss::customTorqueSettings,
                   py::arg("torque_function"),
